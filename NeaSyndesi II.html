@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+
+
+.body {
+	background-image: linear-gradient(to bottom right, #0058AA, #059DF4);
+	display: grid;
+	grid-template-columns: 1fr;
+	/*justify-items: center;*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	transition: 0.5s all;
+	margin: 0px;
+	overflow-y: hidden;
+}
+
+
+
+.logo {
+	max-height: 20vh;
+	max-width: 50%;
+}
+
+
+.content {
+	margin-left: 10vw;
+	margin-top: 10vh;
+	background-color: white;
+	border-radius:  10px;
+	width:  80vw;
+	height: 80vh;
+	border:  black solid 2px;
+	display: grid;
+	grid-template-columns: 3fr 5fr;
+}
+
+
+
+button {
+	cursor: pointer;
+}
+
+.left_div {
+	display: grid;
+	grid-template-rows: 3fr 7fr;
+	background-color: whitesmoke;
+	border-radius: 8px 00px 0px 8px;
+	border-right: black solid 1px;
+}
+
+#contacts {
+	border-top: black solid 1px;
+	max-height: calc(56vh - 20px);
+	padding: 10px;
+	overflow-y: auto;
+}
+
+#message_area {
+	background-image: url("Media/BackgroundLightBlue.png");
+	/*background-repeat: no-repeat;*/
+	background-size: 30px 32px;
+	transition: all 1s ease-in-out;
+}
+
+#message_area {
+	display: grid;
+	grid-template-rows: 1fr 70px;
+	border-radius: 0px 0px 10px 0px;
+
+}
+
+#new_message_div {
+	background-color: #0058AA96;
+	border-radius: 0px 0px 8px 0px;
+	padding: 15px;
+	padding-bottom: 20px;
+	border-top: black solid 1px;
+	display: grid;
+	grid-template-columns: 5fr 1fr 1fr 1fr;
+}
+
+.disabled {
+	cursor: not-allowed;
+}
+
+
+
+#new_message_inp {
+	height: 100%;
+	width: calc(100% - 20px);
+	background: #0058AA00;
+	border: black solid 2px;
+	border-radius: 10px;
+	padding-left: 10px;
+	outline: none;
+	transition: all 0.4s ease-in-out;
+	padding-right: 10px;
+}
+#new_message_inp:hover {
+	background: #0058AA44;
+}
+#new_message_inp:focus {
+	background: #0058AA99;
+}
+
+#new_message_inp:disabled {
+	cursor: not-allowed;
+}
+
+#send_bt {
+	background: url("Media/SendIcon.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	border: black solid 0px;
+	background-position: center;
+	border-radius: 10px;
+	background-color: #0058AA00;
+	padding-left: 0px;
+	transition: all 0.7s;
+	height: 100%;
+	opacity: 0.4;
+}
+
+#send_bt:hover {
+	/*background-color: #0058AA44;*/	
+	/*background-position: right;*/
+	transform: rotate(720deg) scale(1.5);
+	opacity: 1;
+}
+
+#send_bt:disabled:hover {
+	opacity: 0.8;
+	transform: rotate(0);
+	cursor: not-allowed;
+}
+
+#send_bt:active{
+	transform: scale(1);
+}
+
+
+
+
+#call_bt {
+	background: url("Media/CallIcon.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	border: black solid 0px;
+	background-position: center;
+	border-radius: 10px;
+	background-color: #0058AA00;
+	padding-left: 0px;
+	transition: all 0.6s;
+	height: 100%;
+	transform: rotate(120deg);
+	opacity: 0.4;
+}
+
+#call_bt:hover {
+	transform: rotate(720deg) scale(1.5);
+	opacity: 1;
+}
+
+#call_bt:disabled:hover {
+	opacity: 0.8;
+	transform: rotate(120deg);
+	cursor: not-allowed;
+}
+
+#call_bt:active {
+	transform: scale(1.0);
+}
+
+
+
+#file_bt {
+	background: url("Media/DocIconFull.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	border: black solid 0px;
+	background-position: center;
+	border-radius: 10px;
+	background-color: #0058AA00;
+	padding-left: 0px;
+	transition: all 0.6s;
+	height: 100%;
+	transform: rotate(0deg);
+	opacity: 0.4;
+
+	color: #00000000;
+}
+
+#file_bt:hover {
+	transform: rotate(360deg) scale(1.5);
+	opacity: 1;
+}
+
+#file_bt:disabled:hover {
+	opacity: 0.8;
+	transform: rotate(120deg);
+	cursor: not-allowed;
+}
+
+#file_bt:active {
+	transform: scale(1.0);
+}
+
+
+
+
+#messages {
+	padding: 10px;
+	overflow-y: scroll;
+	max-height: calc(80vh - 90px);
+}
+
+.my_message {
+	background: #0058AA99;
+	float: right;
+
+}
+
+.message {
+	border-radius: 10px;
+	padding: 10px;
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+.his_message {
+	background: #059DF499;
+	float: left;
+}
+
+.contact {
+	color: #0058AA;
+	background-image: linear-gradient(to right, whitesmoke, whitesmoke, #059DF455, #059DF477, #059DF444, #0058AA99);
+	background-size: 500% 100%;
+	background-position: left;
+	transition: all 0.5s ease-in-out;
+	border: solid black 0px;
+	border-radius: 10px;
+	width: 100%	;
+	margin-bottom: 10px;
+	overflow-y: auto;
+	display: grid;
+	grid-template-columns:  80px 1fr 30px;
+	overflow-y: hidden;
+}
+
+.sel_contact {
+	opacity: 1;
+	color: black;
+	background-position: right;
+}
+
+.contact:hover{
+	background-position: center;
+	background-size: 300% 100%;
+}
+
+.contact:active{
+	opacity: 0.2;
+	transform: translateX(20px);
+}
+
+
+.contact > h1 {
+	grid-column: 2;
+	margin-bottom: 5px;
+	transition: all 0.4s ease-in-out;
+}
+
+.contact > h2 {
+	opacity: 0;
+	transition: all 0.4s ease-in-out;
+	transform: translateY(-3px);
+	margin: 0px;
+	font-weight: lighter;
+	grid-column: 2;
+}
+.contact:hover > h2 {
+	opacity: 1;
+	transform: translateY(-10px);
+}
+
+.contact:hover > h1 {
+	transform: translateY(-10px);
+}
+
+
+.contact:hover > h3 {
+	transform: scale(2);
+}
+
+.contact > button {
+	background-image: url("Media/EditIcon.png");
+}
+
+.contact > button {
+	background-image: url("Media/EditIcon.png");
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	border: solid 0px;
+	background-color: #FFFFFF00;
+	background-position: center;
+	opacity: 0;
+	transform: scale(0.8) translateY(20px);
+	transition: 0.4s all ease-in-out;
+}
+
+.contact:hover > button {
+	opacity: 0.8;
+	transform: scale(1) translateY(0px);
+}
+
+.contact > button:hover {
+	opacity: 1;
+	transform: rotate(-90deg) scale(1.2) ;
+}
+
+.plusIcon {
+	background-image: url("Media/PlusIcon.png") !important;
+	background-size: 50px !important;
+	cursor: auto !important;
+}
+
+.plusIcon:hover {
+	transform: rotate(0deg) !important;
+}
+
+#info {
+	background-image: url("Media/BackgroundBlue.png");
+	background-size: 30px 32px;
+	background-color: #059DF455;
+	border-radius: 8px 0px 0px 0px;
+	display: grid;
+	justify-items: center;
+	grid-auto-columns: 1fr 1fr;
+}
+
+.new_contact_bt {
+	background-position: right;	
+	background-image: linear-gradient(to right, whitesmoke, whitesmoke, #FE6226, #ffac42, #FFAE58, #CA4C00);
+}
+
+.new_contact_bt > h2 {
+	opacity: 0;
+}
+
+
+
+
+
+.status {
+	border-radius: 20px;
+	height: 10px;
+	width: 10px;
+	margin: 0px;
+	margin-top: calc(100% - 5px);
+	grid-column: 3;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	transition: all 0.4s ease-in-out;
+}
+
+.online {
+	background-color: green;
+}
+
+.offline {
+	background-color: grey;
+}
+
+#mes_shadow {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: #11111199;
+	float: center;
+	display: grid;
+	justify-items: center;
+	transition: all 0.4s;
+}
+
+#create_account_div {
+	height: 300px;
+	width: 40vw;
+	background-color: white;
+	border-radius: 10px;
+	border: solid black 2px;
+	margin-top: 50px;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 50px;
+}
+
+#create_account_div > input {
+	grid-column: 1/ span 2;
+}
+
+
+#edit_account_div {
+	height: 300px;
+	width: 40vw;
+	background-color: white;
+	border-radius: 10px;
+	border: solid black 2px;
+	margin-top: 50px;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 50px;
+}
+
+#edit_account_div > input {
+	grid-column: 1/ span 2;
+}
+
+
+.close_bt {
+	margin-top: 10px;
+	background-image: url("Media/CloseIconBlack.png");
+	height: 30px;
+	width: 30px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #FFFFFF00;
+	border: 0px solid;
+	opacity: 0.8;
+	transform: rotate(0deg);
+	transition: all 0.5s ease-in-out;
+}
+
+.close_bt:hover {
+	opacity: 1;
+	transform: rotate(360deg) scale(1.5);
+}
+
+.new_contact_inp {
+	background-image: linear-gradient(to left, white, white, #059DF422, #0058AA22);
+	padding-left: 10px;
+	background-size: 300% 100%;
+	background-position: right;
+	width: 80%;
+	margin: 5px;
+	height: 2.5em;
+	border: black 1px solid;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+	border-radius: 10px;
+}
+
+
+
+.new_contact_inp:hover {
+	background-position: left;
+}
+
+.new_contact_inp:focus {
+	background-position: left;
+}
+
+.new_contact_inp:invalid {
+	color: red;
+}
+
+#create_bt {
+	grid-column: 1/ span 2;
+	text-align: center;
+	background-image: linear-gradient(to left, white, white, #059DF4, #0058AA);
+	background-size: 300% 100%;
+	background-position: right;
+	width: 80%;
+	margin: 5px;
+	height: 2.5em;
+	border: 0px solid;
+	border-bottom: 2px black solid;
+	border-radius: 10px;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+}
+
+#create_bt:hover {
+	background-position: left;
+	width: 90%;
+}
+
+
+
+
+#edit_bt {
+	grid-column: 1/ span 2;
+	text-align: center;
+	background-image: linear-gradient(to left, white, white, #059DF4, #0058AA);
+	background-size: 300% 100%;
+	background-position: right;
+	width: 80%;
+	margin: 5px;
+	height: 2.5em;
+	border: 0px solid;
+	border-bottom: 2px black solid;
+	border-radius: 10px;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+}
+
+#edit_bt:hover {
+	background-position: left;
+	width: 90%;
+}
+
+
+#delete_bt {
+	grid-column: 1/ span 2;
+	text-align: center;
+	background-image: linear-gradient(to right, #FE6226, #ffac42, #FFAE58, #CA4C00);
+	background-size: 300% 100%;
+	background-position: right;
+	width: 80%;
+	margin: 5px;
+	height: 2.5em;
+	border: 0px solid;
+	border-bottom: 2px black solid;
+	border-radius: 10px;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+}
+
+#delete_bt:hover {
+	background-position: left;
+	width: 90%;
+}
+
+
+#notification {
+	position: absolute;
+	width: calc(100% - 80px);
+	opacity: 0.9;
+	display: grid;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+	grid-template-rows: 1fr;
+	transition: all 0.4s ease-in-out;
+	transform: translateY(-100%);
+	/*grid-template-columns: 30px 1fr;*/
+}
+
+#notification > * {
+	grid-row: 1;
+}
+
+#notification > img {
+	justify-self: right;
+  	padding-right: 40px;
+}
+
+
+.notif {
+	background-color: white;
+}
+
+#notifMessage {
+	font-size: 18px;
+	color: #0058AA;
+}
+
+.alert {
+	background-color: #FE6226;
+}
+
+#file_selector {
+	display: none;
+}
+
+
+
+/*<img class="logo" src="Media/NeaSyndesiLogoWhite.png">*/
+</style>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="Media/NeaSyndesiLogo.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nea Syndesi</title>
+</head>
+<body class="body">
+	<div class="content">
+		<div class="left_div">
+			<div id="info">
+				<img class="logo" src="Media/NeaSyndesiLogo.png">
+				<p1 id="ID">Your ID: Hab56j9</p1>
+			</div>
+			<div id="contacts">
+				<button class="contact sel_contact">
+					<h1 >Someone</h1><h2>329 992 345</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>329 324 567</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>389 962 128</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>439 452 686</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>248 467 144</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>312 976 435</h2>
+				</button>
+				<button class="contact">
+					<h1>Someone Else</h1><h2>027 962 045</h2>
+				</button>
+			</div>
+		</div>
+		<div id="message_area">
+			<div id="messages">
+<!-- 				<div class="my_message message">
+					<h>You | 12:44</h>
+					<p> Welcome to the Nea Syndesi Website. Send messages to each others in a short circuit! The best way to help envinronment without changing nothing!</p>
+				</div>
+				<div class="his_message message">
+					<h>Someone | 12:45</h>
+					<p> Thank you!</p>
+				</div>
+				<div class="my_message message">
+					<h>You | 16:48</h>
+					<p>     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div> -->
+			</div>
+			<div id="new_message_div">
+				<input type="text" placeholder="Type your message..." id="new_message_inp" pattern="[]">
+				<button id="send_bt" onclick="send_message()"></button>
+				<button id="file_bt" onclick="select_file()"></button>
+				<button id="call_bt" style="display:none;"></button>
+				
+
+				<input type="file" id="file_selector" onchange="send_file()">
+				<a id="download_link"></a>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="mes_shadow" style="display: none;opacity: 0;">
+		<div id="create_account_div">
+			<h1>Create new contact</h1>
+			<button class="close_bt" onclick="close_message()"></button>
+			<input class="new_contact_inp" id="cont_id_inp" pattern="[0-9]{3}[. ]{1}[0-9]{3}[. ]{1}[0-9]{3}" placeholder='Contacts ID, in a "000 000 000" format. This cannot be changed later'>
+			<input class="new_contact_inp" id="cont_name_inp" placeholder="Contact name. This can be changed later">
+			<button id="create_bt" onclick="create_new_contact()">Create</button>
+		</div>
+
+		<div id="edit_account_div">
+			<h1>Edit Contact</h1>
+			<button class="close_bt" onclick="close_message()"></button>
+			<input class="new_contact_inp" id="ed_cont_id_inp" pattern="[0-9]{3}[. ]{1}[0-9]{3}[. ]{1}[0-9]{3}" placeholder='Contacts ID, in a "000 000 000" format' disabled="true">
+			<input class="new_contact_inp" id="ed_cont_name_inp" placeholder="Contact new name">
+			<button id="edit_bt" onclick="edit_contact()">Edit</button>
+			<button id="delete_bt" onclick="delete_contact()">Delete</button>
+		</div>
+
+
+	</div>
+
+
+	<div id="notification" class="alert">
+		<img width="30px" height="auto" src="Media/NotifIcon.png">
+		<h1 id="notifMessage"></h1>
+	</div>
+</body>
+
+
+
+
+<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+<script type="text/javascript">
+
+var id = undefined
+
+var peer = undefined
+
+var contacts = {}
+
+var contactList = []
+
+var sel_contact = ""
+
+var connections = {}
+
+var status_check = undefined
+
+
+
+if(localStorage.id != "null" && localStorage.id != "" && localStorage.id != undefined && localStorage.id.length == 11){
+	id=localStorage.getItem("id")
+}
+else{
+	id = create_id()
+	localStorage.id = id
+	localStorage.contacts = ""
+}
+
+//id = prompt("What is your ID? ")
+
+peer = new Peer(id)
+
+contacts = retrieve_contacts()
+document.getElementById("contacts").innerHTML = fill_contacts()
+
+
+document.getElementById("ID").innerText = "Your ID: "+id
+
+
+peer.on("open", function () {
+
+	console.log("Peer ready")
+
+	initialize_connections()
+
+	connect()
+
+
+	setTimeout(function() {status_checker()}, 20)
+
+
+	document.getElementById("messages").innerHTML = ""
+	document.getElementById("message_area").style = "opacity: 0;display:none;"
+
+	document.getElementById("notification").style = "opacity: 0;display:none;"
+	status_check = setInterval(function () {
+	status_checker()
+	}, 10000)
+
+	recieve()
+
+
+	var sb = document.getElementById("new_message_inp");
+	sb.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+        send_message()
+    }
+});
+
+
+
+})
+
+
+
+
+
+
+
+
+function retrieve_contacts(){
+	contactList = localStorage.contacts.split(",")
+	console.log(contactList)
+	if (localStorage.contacts != "") {
+		for (var x=0; x<contactList.length;x++) {
+			contacts[contactList[x]] = localStorage.getItem(contactList[x]+"/id")
+		}
+	}
+
+	return contacts
+}
+
+function fill_contacts() {
+	html = ""
+	if (localStorage.contacts != ""){
+		for(var x=0;x<contactList.length;x++) {
+			html += '<div class="contact" id="'+contactList[x]+'" onclick="select_contact(`'+contactList[x]+'`)"><button title="Edit Contact" id="'+contactList[x]+'/edit" onclick="setTimeout(function () {open_message(`edit`)}, 20	)"></button><h1>'+contactList[x]+'</h1><h3 class="status" id="'+contactList[x]+'/status"></h3><h2>'+contacts[contactList[x]]+'</h2></div>'
+	}
+	}
+	html+= "<div class='contact new_contact_bt' onclick='open_message(`create`)'><button class='plusIcon'></button><h1>New Contact</h1><h2>Create a new contact</h2></div>"
+
+	return html
+}
+
+
+
+function create_id() {
+	new_id = ""
+	for (var x=0;x<3;x++) {
+		for (var y=0;y<3;y++) {
+			new_id += Math.floor(Math.random() * 10);
+		}
+
+		if (x!=2) {
+			new_id += " "
+		}
+		
+	}
+	return new_id
+}
+
+
+function select_contact(contact_id){
+	console.log("clicked")
+	for (var x = 0; x<contactList.length;x++){
+		document.getElementById(contactList[x]).classList.remove("sel_contact")
+	}
+	document.getElementById(contact_id).classList.add("sel_contact")
+
+	sel_contact = contact_id
+
+	document.getElementById("messages").innerHTML = show_messages()
+
+	document.getElementById("message_area").style = undefined
+
+	if(document.getElementById(sel_contact+"/status").title == "Offline") {
+		document.getElementById("send_bt").disabled = true
+		document.getElementById("call_bt").disabled = true
+		document.getElementById("file_bt").disabled = true
+		document.getElementById("new_message_inp").disabled = true
+		document.getElementById("new_message_div").classList.add("disabled")
+	}
+	else {
+		document.getElementById("send_bt").disabled = false
+		document.getElementById("call_bt").disabled = false
+		document.getElementById("file_bt").disabled = false
+		document.getElementById("new_message_inp").disabled = false
+		document.getElementById("new_message_div").classList.remove("disabled")
+	}
+}
+
+
+
+function initialize_connections() {
+
+	if (peer != undefined) {
+		console.log("connecting...")
+
+		for(var x=0; x<contactList.length;x++){
+			if (true){
+				
+				connections[contactList[x]] = peer.connect(contacts[contactList[x]])
+				console.log("Connection sent: "+contacts[contactList[x]])
+
+				console.log(connections[contactList[x]])
+
+				connections[contactList[x]].on("open", function() {
+					console.log("Connection with "+contactList[x]+" opened!")
+					console.log("He is contact n: "+String(x))
+
+					status_checker()
+
+					recieve()
+
+				})
+			}
+		}
+	}
+	else {
+		throw "Peer is not initialized"
+	}
+}
+
+
+function connect() {
+	if (peer != undefined) {
+
+
+		peer.on("connection", function (dataConnection) {
+			console.log("Connection recieved from: "+ dataConnection.peer)
+			if (Object.values(contacts).includes(dataConnection.peer) && dataConnection.peer != id) {
+				console.log("Name: "+ Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)])
+				console.log("ID: "+ dataConnection.peer)
+				connections[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]].close()
+				connections[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]] = dataConnection
+
+				status_checker()
+
+				recieve()
+			}
+			else if(dataConnection.peer == id) {
+				console.log("Connection recieved from myself")
+			}
+			else {
+				console.log("Connection recieved from unknown id")
+
+				console.log("Creating a new contact...")
+
+				document.getElementById("cont_name_inp").value = dataConnection.peer
+				document.getElementById("cont_id_inp").value = dataConnection.peer
+
+				create_new_contact()
+
+			}
+		})
+	}
+}
+
+function recieve() {
+	for (var x = 0; x<contactList.length;x++) {
+		connections[contactList[x]].on("data", function(data) {
+			//console.log(data)
+
+			sender = data.split("|||")[0]
+
+			sender = Object.keys(contacts)[Object.values(contacts).indexOf(sender)]
+
+			console.log(data.split("|||")[1])
+
+			if (data.split("|||")[1]=="mes") {
+
+				data = data.split("|||")[2].split(";>>;")
+
+				console.log(sender+" sent: "+data[2])
+
+				if (localStorage.getItem(sender+"/mes") != "") {
+					localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;"+data[2])
+				} else {
+					localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;"+data[2])
+				}
+
+
+				notificate(sender+` sent: `+data[2], "notif", 5)
+
+
+			} else if(data.split("|||")[1]=="file") {
+
+				console.log("File recieved")
+
+				data = data.split("|||")[2].split(";>>;")
+
+				if (localStorage.getItem(sender+"/mes") != "") {
+					localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+				} else {
+					localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+				}
+				notificate(sender+" sent a file", "notif", 4)
+			}
+
+			
+
+			document.getElementById("messages").innerHTML = show_messages()
+
+		})
+	}
+}
+
+
+
+function status_checker() {
+	if (contactList.length != 0) {
+		for(var x = 0; x<contactList.length;x++) {
+			elem = document.getElementById(contactList[x]+"/status")
+			elem.classList.remove("online")
+			elem.classList.remove("offline")
+
+			if (connections[contactList[x]] != undefined) {
+				if (connections[contactList[x]].open) {
+					elem.classList.add("online")
+					elem.title = "Online"
+				}
+				else {
+					elem.classList.add("offline")
+					elem.title = "Offline"
+				}
+			}
+			else {
+				elem.classList.add("offline")
+				elem.title = "Offline"
+			}
+
+		}
+	}
+}
+
+
+function send_message() {
+
+	if (document.getElementById("new_message_inp").value != ""){
+		
+		time = new Date()
+	
+		time_sent = String(time.getDate())+"/"+String(time.getMonth()+1)+"/"+String(time.getFullYear())+" "+String(time.getHours())+":"+String(time.getMinutes())
+	
+		connections[sel_contact].send(id+"|||mes|||"+time_sent+";>>;"+id+";>>;"+document.getElementById("new_message_inp").value)
+		
+	
+		if (localStorage[sel_contact+"/mes"] != "") {
+			localStorage[sel_contact+"/mes"] += ",,,"+time_sent+";>>;You;>>;"+document.getElementById("new_message_inp").value
+		}
+		else {
+			localStorage[sel_contact+"/mes"] = time_sent+";>>;You;>>;"+document.getElementById("new_message_inp").value
+		}
+		document.getElementById("new_message_inp").value = ""
+	
+		document.getElementById("messages").innerHTML = show_messages()
+	} else {
+		console.log("Empty message")
+
+		notificate("The message is empty", "alert", 3)
+
+	}
+
+}
+
+
+function show_messages() {
+	html = ""
+
+	messages = localStorage[sel_contact+"/mes"].split(",,,")
+
+	console.log(messages)
+
+	if (localStorage[sel_contact+"/mes"] != "") {
+
+	for (var x =0;x<messages.length;x++) {
+
+		mes_class = "my_message"
+
+		if (messages[x].split(";>>;")[1] != "You"){
+			mes_class = "his_message"
+		}
+
+		console.log(messages[x].split(";>>;").length)
+
+		if(messages[x].split(";>>;").length == 3) {
+			html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p></div>'
+		}
+		else {
+			console.log(messages[x].split(";>>;"))
+
+			var image = ""
+
+			var imageLink = show_image(x)
+
+			if (messages[x].split(";>>;")[4].includes("image/")) {
+				image = `<img src="`+imageLink+`">`
+			}
+
+			html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h>'+image+'<button onclick="download('+x+')">Download "'+messages[x].split(";>>;")[5]+'"</button></div>'
+
+
+			// <button onclick="open('+x+')">Open "'+messages[x].split(";>>;")[5]+'"</button>
+		}
+
+	}
+
+	if (localStorage[sel_contact+"/mes"] == "") {
+		html = ""
+	}
+
+	}
+
+	return html
+
+}
+
+
+function close_message() {
+
+	document.getElementById("mes_shadow").style.opacity = 0
+
+	setTimeout( function () {
+		document.getElementById("mes_shadow").style.display = "none"
+	}, 400)
+}
+
+function open_message(mes) {
+
+	setTimeout(function () {document.getElementById("mes_shadow").style = ""}, 20)
+	document.getElementById("mes_shadow").style = "opacity: 0;"
+	if(mes == "create") {
+		document.getElementById("create_account_div").style.display = ""
+		document.getElementById("edit_account_div").style.display = "none"
+	}
+	else if(mes="edit") {
+
+		console.log("Edit contact")
+
+		document.getElementById("ed_cont_id_inp").value = contacts[sel_contact]
+		document.getElementById("ed_cont_name_inp").value = sel_contact
+
+		document.getElementById("edit_account_div").style.display = ""
+		document.getElementById("create_account_div").style.display = "none"
+	}
+
+}
+
+
+function create_new_contact() {
+
+	if (document.getElementById("cont_id_inp").checkValidity()) {
+
+	if (document.getElementById("cont_name_inp").value == "") {
+		document.getElementById("cont_name_inp").value = document.getElementById("cont_id_inp").value
+	}
+
+	if (localStorage["contacts"] != "null" && localStorage["contacts"] != "") {
+		localStorage["contacts"] += ","+document.getElementById("cont_name_inp").value
+	}
+	else {
+		localStorage["contacts"] = document.getElementById("cont_name_inp").value
+	}
+
+	localStorage[document.getElementById("cont_name_inp").value+"/id"] = document.getElementById("cont_id_inp").value
+
+	localStorage[document.getElementById("cont_name_inp").value+"/mes"] = ""
+
+	notificate(`New contact "`+document.getElementById("cont_name_inp").value+`" created`, "notif", 3)
+
+	close_message()
+	contacts = retrieve_contacts()
+	document.getElementById("contacts").innerHTML = fill_contacts()
+
+	initialize_connections()
+
+	document.getElementById("cont_name_inp").value = ""
+
+	document.getElementById("cont_id_inp").value = ""
+
+	}
+	else {
+
+		notificate("The ID does not match the specified format. Please try again", "alert", 4)
+
+		console.log("Invalid ID")
+	}
+
+}
+
+function edit_contact() {
+	new_name = document.getElementById("ed_cont_name_inp").value
+	if (new_name != sel_contact) {
+		contactList = ((localStorage["contacts"]+",").replace(sel_contact+",", new_name+",")).split("")
+
+		console.log(contactList)
+
+		contactList = contactList.slice(0, contactList.length-1)
+
+		edited_contacts = ""
+
+		for(var x = 0; x< contactList.length; x++) {
+			edited_contacts += contactList[x]
+		}
+
+		console.log(edited_contacts)
+
+		localStorage[new_name] = localStorage[sel_contact]
+		localStorage[new_name+"/mes"] = localStorage[sel_contact+"/mes"]
+		localStorage[new_name+"/id"] = localStorage[sel_contact+"/id"]
+
+		localStorage["contacts"] = edited_contacts
+
+		localStorage.removeItem(sel_contact)
+		localStorage.removeItem(sel_contact+"/mes")
+		localStorage.removeItem(sel_contact+"/id")
+
+		close_message()
+
+		notificate(`Contact "`+sel_contact+`" changed to"`+new_name+`".`, "notif", 3)
+
+		sel_contact = new_name
+
+		contacts = retrieve_contacts()
+
+		document.getElementById("contacts").innerHTML = fill_contacts()
+
+	}
+}
+
+
+function delete_contact() {
+	contactList = ((localStorage["contacts"]+",").replace(sel_contact+",", "")).split("")
+
+	console.log(contactList)
+
+	console.log(contactList)
+
+	contactList = contactList.slice(0, contactList.length-1)
+
+	edited_contacts = ""
+
+	for(var x = 0; x< contactList.length; x++) {
+		edited_contacts += contactList[x]
+	}
+
+	console.log(edited_contacts)
+
+	localStorage["contacts"] = edited_contacts
+
+	localStorage.removeItem(sel_contact)
+	localStorage.removeItem(sel_contact+"/mes")
+	localStorage.removeItem(sel_contact+"/id")
+
+	close_message()
+
+	sel_contact = ""
+
+	contacts = retrieve_contacts()
+
+	document.getElementById("contacts").innerHTML = fill_contacts()
+}
+
+
+peer.on("error", function (err){
+	console.log(err)
+})
+
+
+function notificate(mes, type, time){
+	setTimeout(function () {document.getElementById("notification").style = "transform: translateY(0%);"}, 20)
+	document.getElementById("notification").style = "opacity: 0;"
+
+	document.getElementById("notifMessage").innerText = mes
+	document.getElementById("notification").classList.remove("alert")
+	document.getElementById("notification").classList.remove("notif")
+
+	document.getElementById("notification").classList.add(type)
+
+	setTimeout(function () {
+		document.getElementById("notification").style = ""
+		setTimeout(function(){
+			document.getElementById("notification").style = "display:none;"
+		}, 400)
+	}, time*1000)
+
+
+}
+
+function send_file() {
+	inputObj = document.getElementById("file_selector")
+	console.log("Converting...")
+	var fileObj = inputObj.files[0];
+
+	console.log(fileObj)
+
+	var webworkerReader = new FileReader();
+ 
+    webworkerReader.onload = function(){
+
+    	console.log("Loaded")
+
+		binaryStr = webworkerReader.result;
+		base64Str = btoa(binaryStr);
+		console.log(base64Str)
+
+		time = new Date()
+
+		time_sent = String(time.getDate())+"/"+String(time.getMonth()+1)+"/"+String(time.getFullYear())+" "+String(time.getHours())+":"+String(time.getMinutes())
+
+		connections[sel_contact].send(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;"+fileObj["type"]+";>>;"+fileObj["name"])
+
+		if (localStorage[sel_contact+"/mes"] != "") {
+			localStorage[sel_contact+"/mes"] += ",,,"+time_sent+";>>;You;>>;You sent a file: "+fileObj["name"]
+		}
+		else {
+			localStorage[sel_contact+"/mes"] = time_sent+";>>;You;>>;You sent a file: "+fileObj["name"]
+		}
+
+		document.getElementById("messages").innerHTML = show_messages()
+
+
+    };
+    webworkerReader.readAsBinaryString(fileObj);
+
+}
+
+function select_file() {
+	document.getElementById("file_selector").click()
+}
+
+
+function download(mes_number) {
+	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+
+	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
+	console.log(file_data)
+
+	file(file_data, "download")
+
+}
+
+
+function open(mes_number) {
+	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+
+	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
+	console.log(file_data)
+
+	file(file_data, "open")
+}
+
+
+function show_image(mes_number) {
+	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+
+	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
+
+	return file(file_data, "return")
+}
+
+
+
+function file(data, objective) {
+	linkSource = `data:`+data["type"]+`;base64,`+data["base64"]
+
+	if(objective == "download") {
+		downloadLink = document.getElementById("download_link")
+		downloadLink.href = linkSource
+		downloadLink.download = data["name"]
+		downloadLink.click()
+	} else if (objective == "open") {
+		window.open(linkSource)
+	}
+	else if (objective == "return") {
+		console.log("return")
+		return linkSource
+	}
+
+
+
+}
+
+
+
+
+</script>
