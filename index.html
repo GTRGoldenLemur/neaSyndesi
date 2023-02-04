@@ -949,24 +949,25 @@ function status_checker() {
 	if (contactList.length != 0) {
 		for(var x = 0; x<contactList.length;x++) {
 			elem = document.getElementById(contactList[x]+"/status")
-			elem.classList.remove("online")
-			elem.classList.remove("offline")
+			if (elem != null && elem != undefined) {
+				elem.classList.remove("online")
+				elem.classList.remove("offline")
 
-			if (connections[contactList[x]] != undefined) {
-				if (connections[contactList[x]].open) {
-					elem.classList.add("online")
-					elem.title = "Online"
+				if (connections[contactList[x]] != undefined) {
+					if (connections[contactList[x]].open) {
+						elem.classList.add("online")
+						elem.title = "Online"
+					}
+					else {
+						elem.classList.add("offline")
+						elem.title = "Offline"
+					}
 				}
 				else {
 					elem.classList.add("offline")
 					elem.title = "Offline"
 				}
 			}
-			else {
-				elem.classList.add("offline")
-				elem.title = "Offline"
-			}
-
 		}
 	}
 }
