@@ -1270,7 +1270,7 @@ function select_file() {
 
 
 function download(mes_number) {
-	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
 	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
 	console.log(file_data)
@@ -1281,7 +1281,7 @@ function download(mes_number) {
 
 
 function open(mes_number) {
-	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
 	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
 	console.log(file_data)
@@ -1291,7 +1291,7 @@ function open(mes_number) {
 
 
 function show_image(mes_number) {
-	message = localStorage[sel_contact+"/mes"].split("|||")[mes_number].split(";>>;")
+	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
 	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
 
