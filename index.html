@@ -13,6 +13,7 @@
 	transition: 0.5s all;
 	margin: 0px;
 	overflow-y: hidden;
+	font-family: "Eras ITC";
 }
 
 
@@ -24,12 +25,13 @@
 
 
 .content {
-	margin-left: 10vw;
-	margin-top: 10vh;
+	/*margin-left: 1vw;
+	margin-top: 1vh;
 	background-color: white;
 	border-radius:  10px;
-	width:  80vw;
-	height: 80vh;
+	width:  98vw;
+	height: 97vh;*/
+	height: 100vh;
 	border:  black solid 2px;
 	display: grid;
 	grid-template-columns: 3fr 5fr;
@@ -57,8 +59,9 @@ button {
 }
 
 #message_area {
-	background-image: url("BackgroundLightBlue.png");
+	/*background-image: url("Media/BackgroundLightBlue.png");*/
 	/*background-repeat: no-repeat;*/
+	background-color: #84C6E8;
 	background-size: 30px 32px;
 	transition: all 1s ease-in-out;
 }
@@ -109,7 +112,7 @@ button {
 }
 
 #send_bt {
-	background: url("SendIcon.png");
+	background: url("Media/SendIcon.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -143,7 +146,7 @@ button {
 
 
 #call_bt {
-	background: url("CallIcon.png");
+	background: url("Media/CallIcon.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -175,7 +178,7 @@ button {
 
 
 #file_bt {
-	background: url("DocIconFull.png");
+	background: url("Media/DocIconFull.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -211,8 +214,10 @@ button {
 
 #messages {
 	padding: 10px;
+/*	padding-left: 100px;
+	padding-right: 100px;*/
 	overflow-y: scroll;
-	max-height: calc(80vh - 90px);
+	max-height: calc(100vh - 90px);
 }
 
 .my_message {
@@ -226,7 +231,31 @@ button {
 	padding: 10px;
 	width: 70%;
 	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: 50px 1fr;
 }
+
+.message > div > h2 {
+	font-size: 14px;
+	text-align: right;
+	font-weight: lighter;
+}
+
+.message > div > p {
+	font-weight: bold;
+}
+.message > div > * {
+	margin: 0px;
+}
+
+.UserIcon {
+	/*background-image: url("Media/UserIcon.png");*/
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	width: 80%;
+	height: 80%;
+}
+
 
 .his_message {
 	background: #059DF499;
@@ -234,6 +263,8 @@ button {
 }
 
 .contact {
+	font-size: 12px;
+	font-family: "Eras ITC";
 	color: #0058AA;
 	background-image: linear-gradient(to right, whitesmoke, whitesmoke, #059DF455, #059DF477, #059DF444, #0058AA99);
 	background-size: 500% 100%;
@@ -294,12 +325,11 @@ button {
 	transform: scale(2);
 }
 
-.contact > button {
-	background-image: url("EditIcon.png");
-}
 
 .contact > button {
-	background-image: url("EditIcon.png");
+	grid-row: 1;
+	grid-column: 1;
+	background-image: url("Media/EditIcon.png");
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
 	border: solid 0px;
@@ -320,18 +350,36 @@ button {
 	transform: rotate(-90deg) scale(1.2) ;
 }
 
+
+.contact > img {
+  background-position: center;
+  grid-row: 1;
+  grid-column: 1;
+  transition: all 0.4s ease-in-out;
+  height: 40px;
+  width: auto;
+  margin-left: calc(50% - 15px);
+  margin-top: 10px;
+}
+
+.contact:hover > img{
+	opacity: 0;
+	transform: scale(0.8);
+}
+
 .plusIcon {
-	background-image: url("PlusIcon.png") !important;
+	background-image: url("Media/PlusIcon.png") !important;
 	background-size: 50px !important;
 	cursor: auto !important;
 }
 
-.plusIcon:hover {
-	transform: rotate(0deg) !important;
+
+.contact:hover > .plusIcon {
+	transform: rotate(180deg);
 }
 
 #info {
-	background-image: url("BackgroundBlue.png");
+	background-image: url("Media/BackgroundBlue.png");
 	background-size: 30px 32px;
 	background-color: #059DF455;
 	border-radius: 8px 0px 0px 0px;
@@ -415,12 +463,13 @@ button {
 
 #edit_account_div > input {
 	grid-column: 1/ span 2;
+
 }
 
 
 .close_bt {
 	margin-top: 10px;
-	background-image: url("CloseIconBlack.png");
+	background-image: url("Media/CloseIconBlack.png");
 	height: 30px;
 	width: 30px;
 	background-size: contain;
@@ -575,13 +624,18 @@ button {
 	display: none;
 }
 
+.message_image {
+	width: 100%;
+	height: 100%;
+}
+
 
 
 /*<img class="logo" src="Media/NeaSyndesiLogoWhite.png">*/
 </style>
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" type="image/x-icon" href="NeaSyndesiLogo.ico">
+	<link rel="icon" type="image/x-icon" href="Media/NeaSyndesiLogo.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nea Syndesi</title>
 </head>
@@ -589,7 +643,7 @@ button {
 	<div class="content">
 		<div class="left_div">
 			<div id="info">
-				<img class="logo" src="NeaSyndesiLogo.png">
+				<img class="logo" src="Media/NeaSyndesiLogo.png">
 				<p1 id="ID">Your ID: Hab56j9</p1>
 			</div>
 			<div id="contacts">
@@ -668,7 +722,7 @@ button {
 
 
 	<div id="notification" class="alert">
-		<img width="30px" height="auto" src="NotifIcon.png">
+		<img width="30px" height="auto" src="Media/NotifIcon.png">
 		<h1 id="notifMessage"></h1>
 	</div>
 </body>
@@ -678,6 +732,9 @@ button {
 
 <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
 <script type="text/javascript">
+
+
+var icons = ["Media/UserIcon.png"]
 
 var id = undefined
 
@@ -772,7 +829,7 @@ function fill_contacts() {
 	html = ""
 	if (localStorage.contacts != ""){
 		for(var x=0;x<contactList.length;x++) {
-			html += '<div class="contact" id="'+contactList[x]+'" onclick="select_contact(`'+contactList[x]+'`)"><button title="Edit Contact" id="'+contactList[x]+'/edit" onclick="setTimeout(function () {open_message(`edit`)}, 20	)"></button><h1>'+contactList[x]+'</h1><h3 class="status" id="'+contactList[x]+'/status"></h3><h2>'+contacts[contactList[x]]+'</h2></div>'
+			html += '<div class="contact" id="'+contactList[x]+'" onclick="select_contact(`'+contactList[x]+'`)"><img src="'+localStorage[contactList[x]+"/icon"]+'"><button class="edit_button" title="Edit Contact" id="'+contactList[x]+'/edit" onclick="setTimeout(function () {open_message(`edit`)}, 20)"></button><h1>'+contactList[x]+'</h1><h3 class="status" id="'+contactList[x]+'/status"></h3><h2>'+contacts[contactList[x]]+'</h2></div>'
 	}
 	}
 	html+= "<div class='contact new_contact_bt' onclick='open_message(`create`)'><button class='plusIcon'></button><h1>New Contact</h1><h2>Create a new contact</h2></div>"
@@ -1015,15 +1072,19 @@ function show_messages() {
 	for (var x =0;x<messages.length;x++) {
 
 		mes_class = "my_message"
+		mes_icon = "Media/YouIcon.png"
+		
 
 		if (messages[x].split(";>>;")[1] != "You"){
 			mes_class = "his_message"
+			mes_icon = localStorage[sel_contact+"/icon"]
 		}
 
 		console.log(messages[x].split(";>>;").length)
 
 		if(messages[x].split(";>>;").length == 3) {
-			html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p></div>'
+			// html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p></div>'
+			html += '<div class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p><h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
 		}
 		else {
 			console.log(messages[x].split(";>>;"))
@@ -1033,7 +1094,7 @@ function show_messages() {
 			var imageLink = show_image(x)
 
 			if (messages[x].split(";>>;")[4].includes("image/")) {
-				image = `<img src="`+imageLink+`">`
+				image = `<img class="message_image" src="`+imageLink+`">`
 			}
 
 			html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h>'+image+'<button onclick="download('+x+')">Download "'+messages[x].split(";>>;")[5]+'"</button></div>'
@@ -1104,6 +1165,8 @@ function create_new_contact() {
 	localStorage[document.getElementById("cont_name_inp").value+"/id"] = document.getElementById("cont_id_inp").value
 
 	localStorage[document.getElementById("cont_name_inp").value+"/mes"] = ""
+
+	localStorage[document.getElementById("cont_name_inp").value+"/icon"] = icons[Math.floor(Math.random()*icons.length)]
 
 	notificate(`New contact "`+document.getElementById("cont_name_inp").value+`" created`, "notif", 3)
 
