@@ -4,7 +4,7 @@
 
 
 .body {
-	background-image: linear-gradient(to bottom right, #0058AA, #059DF4);
+	background-image: linear-gradient(to bottom right, #005341, #B1FBEA);
 	display: grid;
 	grid-template-columns: 1fr;
 	/*justify-items: center;*/
@@ -46,7 +46,7 @@ button {
 .left_div {
 	display: grid;
 	grid-template-rows: 3fr 7fr;
-	background-color: whitesmoke;
+	background-color: white;
 	border-radius: 8px 00px 0px 8px;
 	border-right: black solid 1px;
 }
@@ -61,20 +61,20 @@ button {
 #message_area {
 	/*background-image: url("BackgroundLightBlue.png");*/
 	/*background-repeat: no-repeat;*/
-	background-color: #84C6E8;
+	background-color: #B1FBEA;
 	background-size: 30px 32px;
 	transition: all 1s ease-in-out;
 }
 
 #message_area {
 	display: grid;
-	grid-template-rows: 1fr 70px;
+	grid-template-rows: 50px 1fr 70px;
 	border-radius: 0px 0px 10px 0px;
 
 }
 
 #new_message_div {
-	background-color: #0058AA96;
+	background-color: #00534166;
 	border-radius: 0px 0px 8px 0px;
 	padding: 15px;
 	padding-bottom: 20px;
@@ -92,7 +92,7 @@ button {
 #new_message_inp {
 	height: 100%;
 	width: calc(100% - 20px);
-	background: #0058AA00;
+	background: #00534100;
 	border: black solid 2px;
 	border-radius: 10px;
 	padding-left: 10px;
@@ -101,10 +101,10 @@ button {
 	padding-right: 10px;
 }
 #new_message_inp:hover {
-	background: #0058AA44;
+	background: #00534144;
 }
 #new_message_inp:focus {
-	background: #0058AA99;
+	background: #00534199;
 }
 
 #new_message_inp:disabled {
@@ -217,11 +217,11 @@ button {
 /*	padding-left: 100px;
 	padding-right: 100px;*/
 	overflow-y: scroll;
-	max-height: calc(100vh - 90px);
+	max-height: calc(100vh - 130px);
 }
 
 .my_message {
-	background: #0058AA99;
+	background: #037d62;
 	float: right;
 
 }
@@ -250,22 +250,23 @@ button {
 
 .UserIcon {
 	/*background-image: url("UserIcon.png");*/
-	background-size: 100% auto;
 	background-repeat: no-repeat;
 	width: 80%;
-	height: 80%;
+	border-radius: 20px;
+	border: 2px black solid;
+	background-color: lightgrey;
 }
 
 
 .his_message {
-	background: #059DF499;
+	background: #34d7b4;
 	float: left;
 }
 
 .contact {
 	font-size: 12px;
 	font-family: "Eras ITC";
-	color: #0058AA;
+	color: #012f25;
 	background-image: linear-gradient(to right, whitesmoke, whitesmoke, #059DF455, #059DF477, #059DF444, #0058AA99);
 	background-size: 500% 100%;
 	background-position: left;
@@ -352,14 +353,16 @@ button {
 
 
 .contact > img {
-  background-position: center;
-  grid-row: 1;
-  grid-column: 1;
-  transition: all 0.4s ease-in-out;
-  height: 40px;
-  width: auto;
-  margin-left: calc(50% - 15px);
-  margin-top: 10px;
+	border-radius: 20px;
+	border: 2px solid black;
+	background-position: center;
+	grid-row: 1;
+	grid-column: 1;
+	transition: all 0.4s ease-in-out;
+	height: 40px;
+	width: auto;
+	margin-left: calc(50% - 25px);
+	margin-top: 10px;
 }
 
 .contact:hover > img{
@@ -379,13 +382,15 @@ button {
 }
 
 #info {
-	background-image: url("BackgroundBlue.png");
-	background-size: 30px 32px;
-	background-color: #059DF455;
+	background-color: whitesmoke;
 	border-radius: 8px 0px 0px 0px;
 	display: grid;
 	justify-items: center;
 	grid-auto-columns: 1fr 1fr;
+}
+
+#info > p1{
+	color: black;
 }
 
 .new_contact_bt {
@@ -629,21 +634,67 @@ button {
 	height: 100%;
 }
 
+#logo_charge {
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	transition: 0.4s all ease-in-out;
+	background-color: white;
+	display: grid;
+	justify-items: center;
+	overflow: hidden;
+}
+
+/*#logo_charge > div {
+	width: 100vh;
+	display: grid;
+	justify-items: center;
+}*/
+
+#logo_charge > img {
+	margin-top: -5%;
+	width: calc(100% + 20px);
+	height: auto;
+}
+
+#contactSelected {
+	padding-top: 2px;
+	display: grid;
+	background-color: white;
+	border-bottom: black solid 2px;
+	grid-template-columns: 50px 1fr 1fr;
+	grid-template-rows: 1fr;
+}
+
+#contactSelected > * {
+	margin: 2px;
+}
+
+#contactSelected > * > * {
+	margin: 2px;
+}
+
+#counter {
+	border-radius: 5px;
+	border: 0px solid;
+	background-color: lightgrey;
+	text-align: center;
+}
 
 
 /*<img class="logo" src="NeaSyndesiLogoWhite.png">*/
 </style>
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" type="image/x-icon" href="NeaSyndesiLogo.ico">
+	<link rel="icon" type="image/x-icon" href="SpeakleIconBlack.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nea Syndesi</title>
+	<title>Speakle Chat</title>
 </head>
 <body class="body">
 	<div class="content">
 		<div class="left_div">
 			<div id="info">
-				<img class="logo" src="NeaSyndesiLogo.png">
+				<img class="logo" src="SpeakleIcon.png">
 				<p1 id="ID">Your ID: Hab56j9</p1>
 			</div>
 			<div id="contacts">
@@ -671,6 +722,14 @@ button {
 			</div>
 		</div>
 		<div id="message_area">
+			<div id="contactSelected">
+				<img id="currentUserIcon" class="UserIcon">
+				<h1 id="currentUserName"></h1>
+				<div>
+				<h1 class="You have avoided"></h1>
+				<h1 id="counter" class="counter">000,000,000 g of CO²</h1>
+				</div>
+			</div>
 			<div id="messages">
 <!-- 				<div class="my_message message">
 					<h>You | 12:44</h>
@@ -697,6 +756,7 @@ button {
 
 			</div>
 		</div>
+
 	</div>
 
 	<div id="mes_shadow" style="display: none;opacity: 0;">
@@ -722,8 +782,15 @@ button {
 
 
 	<div id="notification" class="alert">
-		<img width="30px" height="auto" src="Media/NotifIcon.png">
+		<img width="30px" height="auto" src="NotifIcon.png">
 		<h1 id="notifMessage"></h1>
+	</div>
+
+	<div id="logo_charge">
+			<img id="logo_video" src="">
+<!-- 		<video id="logo_video" autoplay>
+			<source src="FinalAnimatedIcon.mp4" type="video/mp4">
+		</video> -->
 	</div>
 </body>
 
@@ -734,7 +801,7 @@ button {
 <script type="text/javascript">
 
 
-var icons = ["Media/UserIcon.png"]
+var icons = ["UserI.png", "UserII.png", "UserIII.png", "UserIV.png", "UserV.png", "UserVI.png", "UserVII.png", "UserVIII.png", "UserIX.png", "UserX.png", "UserXI.png"]
 
 var id = undefined
 
@@ -748,7 +815,21 @@ var sel_contact = ""
 
 var connections = {}
 
+var connected = {}
+
 var status_check = undefined
+
+
+
+
+document.getElementById("logo_video").src = "FinalAnimatedIcon.gif"
+setTimeout(function() {
+	document.getElementById("logo_charge").style.opacity = 0
+	setTimeout(function() {
+		document.getElementById("logo_charge").style.display = "none"
+		document.getElementById("logo_video").src = ""
+	}, 400)
+}, 3000)
 
 
 
@@ -759,6 +840,7 @@ else{
 	id = create_id()
 	localStorage.id = id
 	localStorage.contacts = ""
+	localStorage.messages = 0
 }
 
 //id = prompt("What is your ID? ")
@@ -819,6 +901,7 @@ function retrieve_contacts(){
 	if (localStorage.contacts != "") {
 		for (var x=0; x<contactList.length;x++) {
 			contacts[contactList[x]] = localStorage.getItem(contactList[x]+"/id")
+			connected[contactList[x]] = false
 		}
 	}
 
@@ -867,6 +950,26 @@ function select_contact(contact_id){
 	document.getElementById("messages").innerHTML = show_messages()
 
 	document.getElementById("message_area").style = undefined
+
+	document.getElementById("currentUserName").innerText = sel_contact
+	document.getElementById("currentUserIcon").src = localStorage[sel_contact+"/icon"]
+
+	co2 = String(Math.floor(parseInt(localStorage.messages)*2.8))
+
+	co2 = "0".repeat(9-co2.length)+co2
+
+
+
+	final_co2 = ""
+
+	for (var x = 0; x<co2.length;x++){
+		final_co2 += co2.split("")[x]
+		if ((x+1)%3 == 0) {
+			final_co2 += " "
+		}
+	}
+
+	document.getElementById("counter").innerHTML = final_co2+" g of CO²"
 
 	if(document.getElementById(sel_contact+"/status").title == "Offline") {
 		document.getElementById("send_bt").disabled = true
@@ -953,50 +1056,55 @@ function connect() {
 
 function recieve() {
 	for (var x = 0; x<contactList.length;x++) {
-		connections[contactList[x]].on("data", function(data) {
-			//console.log(data)
+		if (connected[contactList[x]] == false) {
 
-			sender = data.split("|||")[0]
+			connected[contactList[x]] = true
 
-			sender = Object.keys(contacts)[Object.values(contacts).indexOf(sender)]
+			connections[contactList[x]].on("data", function(data) {
+				//console.log(data)
 
-			console.log(data.split("|||")[1])
+				sender = data.split("|||")[0]
 
-			if (data.split("|||")[1]=="mes") {
+				sender = Object.keys(contacts)[Object.values(contacts).indexOf(sender)]
 
-				data = data.split("|||")[2].split(";>>;")
+				console.log(data.split("|||")[1])
 
-				console.log(sender+" sent: "+data[2])
+				if (data.split("|||")[1]=="mes") {
 
-				if (localStorage.getItem(sender+"/mes") != "") {
-					localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;"+data[2])
-				} else {
-					localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;"+data[2])
+					data = data.split("|||")[2].split(";>>;")
+
+					console.log(sender+" sent: "+data[2])
+
+					if (localStorage.getItem(sender+"/mes") != "") {
+						localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;"+data[2])
+					} else {
+						localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;"+data[2])
+					}
+
+
+					notificate(sender+` sent: `+data[2], "notif", 5)
+
+
+				} else if(data.split("|||")[1]=="file") {
+
+					console.log("File recieved")
+
+					data = data.split("|||")[2].split(";>>;")
+
+					if (localStorage.getItem(sender+"/mes") != "") {
+						localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+					} else {
+						localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+					}
+					notificate(sender+" sent a file", "notif", 4)
 				}
 
+				
 
-				notificate(sender+` sent: `+data[2], "notif", 5)
+				document.getElementById("messages").innerHTML = show_messages()
 
-
-			} else if(data.split("|||")[1]=="file") {
-
-				console.log("File recieved")
-
-				data = data.split("|||")[2].split(";>>;")
-
-				if (localStorage.getItem(sender+"/mes") != "") {
-					localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
-				} else {
-					localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
-				}
-				notificate(sender+" sent a file", "notif", 4)
-			}
-
-			
-
-			document.getElementById("messages").innerHTML = show_messages()
-
-		})
+			})
+		}
 	}
 }
 
@@ -1048,7 +1156,11 @@ function send_message() {
 			localStorage[sel_contact+"/mes"] = time_sent+";>>;You;>>;"+document.getElementById("new_message_inp").value
 		}
 		document.getElementById("new_message_inp").value = ""
-	
+		
+		localStorage.messages = parseInt(localStorage.messages)+1
+
+		select_contact(sel_contact)
+
 		document.getElementById("messages").innerHTML = show_messages()
 	} else {
 		console.log("Empty message")
@@ -1072,7 +1184,7 @@ function show_messages() {
 	for (var x =0;x<messages.length;x++) {
 
 		mes_class = "my_message"
-		mes_icon = "Media/YouIcon.png"
+		mes_icon = "YouIcon.png"
 		
 
 		if (messages[x].split(";>>;")[1] != "You"){
@@ -1382,7 +1494,6 @@ function file(data, objective) {
 
 
 }
-
 
 
 
