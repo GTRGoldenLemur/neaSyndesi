@@ -2,6 +2,19 @@
 <html>
 <style type="text/css">
 
+:root {
+	--send-bt-url: url("SendIcon.png");
+	--call-bt-url: url("CallIcon.png");
+	--file-bt-url: url("DocIconFull.png");
+	--download-url: url("Download.png");
+	--edit-bt-url: url("EditIcon.png");
+	--plus-bt-url: url("PlusIcon.png");
+	--close-bt-url: url("CloseIconBlack.png");
+	--mic-bt-url: url("MicIcon.png");
+	--micFull-bt-url: url("MicIconFull.png");
+	--stop-record-bt-url: url("StopRecordingIcon.png");ç
+	--animated-icon: url("FinalAnimatedIcon.gif");
+}
 
 .body {
 	background-image: linear-gradient(to bottom right, #005341, #B1FBEA);
@@ -59,7 +72,7 @@ button {
 }
 
 #message_area {
-	/*background-image: url("BackgroundLightBlue.png");*/
+	/*background-image: url("Media/BackgroundLightBlue.png");*/
 	/*background-repeat: no-repeat;*/
 	background-color: #B1FBEA;
 	background-size: 30px 32px;
@@ -80,7 +93,7 @@ button {
 	padding-bottom: 20px;
 	border-top: black solid 1px;
 	display: grid;
-	grid-template-columns: 5fr 1fr 1fr 1fr;
+	grid-template-columns: 5fr 50px 50px 50px;
 }
 
 .disabled {
@@ -112,7 +125,7 @@ button {
 }
 
 #send_bt {
-	background: url("SendIcon.png");
+	background: var(--send-bt-url);
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -120,7 +133,7 @@ button {
 	border-radius: 10px;
 	background-color: #0058AA00;
 	padding-left: 0px;
-	transition: all 0.7s;
+	transition: all 0.6s;
 	height: 100%;
 	opacity: 0.4;
 }
@@ -128,7 +141,7 @@ button {
 #send_bt:hover {
 	/*background-color: #0058AA44;*/	
 	/*background-position: right;*/
-	transform: rotate(720deg) scale(1.5);
+	transform: rotate(360deg) scale(1.5);
 	opacity: 1;
 }
 
@@ -146,7 +159,7 @@ button {
 
 
 #call_bt {
-	background: url("CallIcon.png");
+	background: var(--call-bt-url);
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -178,7 +191,7 @@ button {
 
 
 #file_bt {
-	background: url("DocIconFull.png");
+	background: var(--file-bt-url);
 	background-size: contain;
 	background-repeat: no-repeat;
 	border: black solid 0px;
@@ -201,7 +214,7 @@ button {
 
 #file_bt:disabled:hover {
 	opacity: 0.8;
-	transform: rotate(120deg);
+	transform: rotate(0deg);
 	cursor: not-allowed;
 }
 
@@ -209,6 +222,35 @@ button {
 	transform: scale(1.0);
 }
 
+#micro_bt {
+	background: var(--micFull-bt-url);
+	background-size: auto calc(100% * 0.8);
+	background-repeat: no-repeat;
+	border: black solid 0px;
+	background-position: center;
+	border-radius: 10px;
+	background-color: transparent;
+	padding-left: 0px;
+	transition: all 0.6s;
+	height: 100%;
+	transform: rotate(0deg);
+	opacity: 0.4;
+}
+
+#micro_bt:hover {
+	transform: rotate(360deg) scale(1.5);
+	opacity: 1;
+}
+
+#micro_bt:disabled:hover {
+	opacity: 0.8;
+	transform: rotate(0deg);
+	cursor: not-allowed;
+}
+
+#micro_bt:active {
+	transform: scale(1.0);
+}
 
 
 
@@ -248,8 +290,32 @@ button {
 	margin: 0px;
 }
 
+.message > div > button {
+	width: auto;
+	height: 30px;
+	background-size: auto 130%, 300% 200%;
+	background-position: center left, left;
+	padding-left: 40px;
+	padding-right: 5px;
+	background-repeat: no-repeat;
+	background-color: whitesmoke;
+	border-radius: 5px;
+	border: 2px solid #005341;
+	background-image: var(--download-url), linear-gradient(to right, white, white, #B1FBEA, #B1FBEA);
+	text-align: left;
+	transition: all 0.4s ease-in-out;
+	margin-bottom: 5px; 
+}
+
+.message > div > button:hover {
+	background-position: center left, right;
+	background-size: auto 140%, 300% 100%;
+}
+
+
+
 .UserIcon {
-	/*background-image: url("UserIcon.png");*/
+	/*background-image: url("Media/UserIcon.png");*/
 	background-repeat: no-repeat;
 	width: 80%;
 	border-radius: 20px;
@@ -275,7 +341,6 @@ button {
 	border-radius: 10px;
 	width: 100%	;
 	margin-bottom: 10px;
-	overflow-y: auto;
 	display: grid;
 	grid-template-columns:  80px 1fr 30px;
 	overflow-y: hidden;
@@ -330,7 +395,7 @@ button {
 .contact > button {
 	grid-row: 1;
 	grid-column: 1;
-	background-image: url("EditIcon.png");
+	background-image: var(--edit-bt-url);
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
 	border: solid 0px;
@@ -371,7 +436,7 @@ button {
 }
 
 .plusIcon {
-	background-image: url("PlusIcon.png") !important;
+	background-image: var(--plus-bt-url) !important;
 	background-size: 50px !important;
 	cursor: auto !important;
 }
@@ -474,7 +539,7 @@ button {
 
 .close_bt {
 	margin-top: 10px;
-	background-image: url("CloseIconBlack.png");
+	background-image: var(--close-bt-url);
 	height: 30px;
 	width: 30px;
 	background-size: contain;
@@ -631,7 +696,7 @@ button {
 
 .message_image {
 	width: 100%;
-	height: 100%;
+	height: auto;
 }
 
 #logo_charge {
@@ -681,8 +746,120 @@ button {
 	text-align: center;
 }
 
+.file_disappeared {
+	color: red;
+	font-weight: normal !important;
+}
 
-/*<img class="logo" src="NeaSyndesiLogoWhite.png">*/
+#record_div {
+	height: fit-content;
+	width: 40vw;
+	background-color: white;
+	border-radius: 10px;
+	border: solid black 2px;
+	margin-top: 50px;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 50px;
+}
+
+#send_audio_bt {
+	grid-column: 1/ span 2;
+	text-align: center;
+	background-image: linear-gradient(to right, #FE6226, #ffac42, #FFAE58, #CA4C00);
+	background-size: 300% 100%;
+	background-position: right;
+	width: 80%;
+	margin: 5px;
+	height: 2.5em;
+	border: 0px solid;
+	border-bottom: 2px black solid;
+	border-radius: 10px;
+	outline: none;
+	transition: all 0.5s ease-in-out;
+}
+
+#send_audio_bt:hover {
+	background-position: left;
+	width: 90%;
+
+}
+
+#record_div > div {
+	grid-column: 1/ span 2;
+	display: grid;
+	width: 80%;
+	height: 150px;
+	grid-template-columns: 50px 1fr;
+}
+
+#record_div > h1 {
+	margin: 5px;
+}
+
+#record_div audio {
+	grid-column: 1/ span 2;
+	width: 100%;
+}
+
+#start_recording {
+	background-image: var(--mic-bt-url);
+	border: 0px solid;
+	background-size: auto 30px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center center;
+	width: 50px;
+	height: 100%;
+	transition: 0.4s all ease-in-out;
+}
+#start_recording:hover {
+	background-image: var(--micFull-bt-url);
+}
+
+#oscilloscope {
+	display: none;
+}
+
+#volumemeter{
+	height: 100%;
+	width: 100%;
+}
+
+.stop_recording {
+	background-image: var(--stop-record-bt-url);
+}
+
+
+#mess_right_click {
+	width: 200px;
+	display: grid;
+	transition: 0.2s opacity ease-in-out;
+	background-color: white;
+	border-radius: 5px;
+	border: none;
+	position: absolute;
+	padding: 5px;
+	box-shadow: black 0px 0px 20px;
+	top: 0;
+	left: 0;
+}
+
+
+#mark_important {
+	background-color: transparent;
+	border-radius: 5px;
+	border: solid 0px;
+	margin-bottom: 5px;
+	transition: 0.4s all;
+}
+
+#mark_important:hover {
+	/*letter-spacing: 2px;*/
+	background-color: #00000011;
+}
+
+/*<img class="logo" src="Media/NeaSyndesiLogoWhite.png">*/
 </style>
 <head>
 	<meta charset="utf-8">
@@ -690,7 +867,7 @@ button {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Speakle Chat</title>
 </head>
-<body class="body">
+<body class="body" id="body" onclick="close_options()">
 	<div class="content">
 		<div class="left_div">
 			<div id="info">
@@ -749,7 +926,7 @@ button {
 				<button id="send_bt" onclick="send_message()"></button>
 				<button id="file_bt" onclick="select_file()"></button>
 				<button id="call_bt" style="display:none;"></button>
-				
+				<button id="micro_bt" onclick="open_message('audio')"></button>
 
 				<input type="file" id="file_selector" onchange="send_file()">
 				<a id="download_link"></a>
@@ -777,9 +954,26 @@ button {
 			<button id="delete_bt" onclick="delete_contact()">Delete</button>
 		</div>
 
+		<div id="record_div">
+			<h1>Record Audio</h1>
+			<button class="close_bt" onclick="close_message();mediaStream.stop();"></button>
+			<div>
+				<button id="start_recording" onclick="record_Audio()"></button>
+				<canvas id="oscilloscope"></canvas>
+				<canvas id="volumemeter"></canvas>
+				<!-- <audio controls>
+					<source type="audio/ogg" id="listen_recorded_audio" src="">
+				</audio> -->
+			</div>
+			<!-- <button id="send_audio_bt" onclick="send_audio()">Send</button> -->
+		</div>
 
 	</div>
 
+	<div id="mess_right_click" style="display: none;opacity:0;">
+		<button id="mark_important">Important</button>
+		<button>Delete</button>
+	</div>
 
 	<div id="notification" class="alert">
 		<img width="30px" height="auto" src="NotifIcon.png">
@@ -792,14 +986,15 @@ button {
 			<source src="FinalAnimatedIcon.mp4" type="video/mp4">
 		</video> -->
 	</div>
-</body>
-
-
 
 
 <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
 <script type="text/javascript">
 
+var media = ""
+
+
+// var icons = ["Media/UserI.png", "Media/UserII.png", "Media/UserIII.png", "Media/UserIV.png", "Media/UserV.png", "Media/UserVI.png", "Media/UserVII.png", "Media/UserVIII.png", "Media/UserIX.png", "Media/UserX.png", "Media/UserXI.png"]
 
 var icons = ["UserI.PNG", "UserII.PNG", "UserIII.PNG", "UserIV.PNG", "UserV.PNG", "UserVI.PNG", "UserVII.PNG", "UserVIII.PNG", "UserIX.PNG", "UserX.PNG", "UserXI.PNG"]
 
@@ -819,10 +1014,11 @@ var connected = {}
 
 var status_check = undefined
 
+var files = {}
 
 
 
-document.getElementById("logo_video").src = "FinalAnimatedIcon.gif"
+document.getElementById("logo_video").src = media+"FinalAnimatedIcon.gif"
 setTimeout(function() {
 	document.getElementById("logo_charge").style.opacity = 0
 	setTimeout(function() {
@@ -892,9 +1088,6 @@ peer.on("open", function () {
 
 
 
-
-
-
 function retrieve_contacts(){
 	contactList = localStorage.contacts.split(",")
 	console.log(contactList)
@@ -939,7 +1132,6 @@ function create_id() {
 
 
 function select_contact(contact_id){
-	console.log("clicked")
 	for (var x = 0; x<contactList.length;x++){
 		document.getElementById(contactList[x]).classList.remove("sel_contact")
 	}
@@ -1091,17 +1283,20 @@ function recieve() {
 
 					data = data.split("|||")[2].split(";>>;")
 
+					console.log(data[2])
+					files[data[4]] = {"file": data[2], "time":data[0]}	
+
 					if (localStorage.getItem(sender+"/mes") != "") {
-						localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+						localStorage.setItem(sender+"/mes", localStorage.getItem(sender+"/mes")+",,,"+data[0]+";>>;"+sender+";>>;;>>;"+data[4]+";>>;"+data[3]+";>>;"+data[4])
 					} else {
-						localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;;>>;"+data[2]+";>>;"+data[3]+";>>;"+data[4])
+						localStorage.setItem(sender+"/mes", data[0]+";>>;"+sender+";>>;;>>;"+data[4]+";>>;"+data[3]+";>>;"+data[4])
 					}
 					notificate(sender+" sent a file", "notif", 4)
 				}
 
 				
 
-				document.getElementById("messages").innerHTML = show_messages()
+				show_messages()
 
 			})
 		}
@@ -1135,6 +1330,9 @@ function status_checker() {
 			}
 		}
 	}
+	if (sel_contact != "") {
+		select_contact(sel_contact)
+	}
 }
 
 
@@ -1161,7 +1359,8 @@ function send_message() {
 
 		select_contact(sel_contact)
 
-		document.getElementById("messages").innerHTML = show_messages()
+		show_messages()
+
 	} else {
 		console.log("Empty message")
 
@@ -1177,14 +1376,12 @@ function show_messages() {
 
 	messages = localStorage[sel_contact+"/mes"].split(",,,")
 
-	console.log(messages)
-
 	if (localStorage[sel_contact+"/mes"] != "") {
 
 	for (var x =0;x<messages.length;x++) {
 
 		mes_class = "my_message"
-		mes_icon = "YouIcon.png"
+		mes_icon = media+"YouIcon.png"
 		
 
 		if (messages[x].split(";>>;")[1] != "You"){
@@ -1196,7 +1393,7 @@ function show_messages() {
 
 		if(messages[x].split(";>>;").length == 3) {
 			// html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p></div>'
-			html += '<div class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p><h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
+			html += '<div id="mes'+String(x)+'" oncontextmenu="message_right_click();return false" class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p><h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
 		}
 		else {
 			console.log(messages[x].split(";>>;"))
@@ -1205,11 +1402,26 @@ function show_messages() {
 
 			var imageLink = show_image(x)
 
-			if (messages[x].split(";>>;")[4].includes("image/")) {
+			console.log(imageLink)
+
+			var button = ""
+
+			if (messages[x].split(";>>;")[4].includes("image/") && imageLink != undefined) {
 				image = `<img class="message_image" src="`+imageLink+`">`
+			} if (messages[x].split(";>>;")[4].includes("video/") && imageLink != undefined) {
+				image = `<video class="message_image" controls> <source type="`+messages[x].split(";>>;")[4]+`" src="`+imageLink+`"></video>`
+			} if (messages[x].split(";>>;")[4].includes("audio/") && imageLink != undefined) {
+				image = `<audio class="message_image" controls> <source type="`+messages[x].split(";>>;")[4]+`" src="`+imageLink+`"></audio>`
+			}
+			if (imageLink != undefined) {
+				button = '<button onclick="download('+x+')">Download "'+messages[x].split(";>>;")[5]+'"</button>'
+			} else if (imageLink == undefined) {
+				image = `<p class="file_disappeared">The file is not longer available</p>`
 			}
 
-			html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h>'+image+'<button onclick="download('+x+')">Download "'+messages[x].split(";>>;")[5]+'"</button></div>'
+
+
+			html += '<div class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h>'+`<p>"`+sel_contact+`" sent `+messages[x].split(";>>;")[5]+`</p>`+image+button+'<h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
 
 
 			// <button onclick="open('+x+')">Open "'+messages[x].split(";>>;")[5]+'"</button>
@@ -1223,8 +1435,47 @@ function show_messages() {
 
 	}
 
+	document.getElementById("messages").innerHTML = html
+
+	if (localStorage[sel_contact+"/mes"] != "") {
+		for (var x=0; x<messages.length;x++) {
+			el = document.getElementById("mes"+String(x))
+			el.addEventListener("click", function (e){
+				console.log(e.which)
+			}, false)
+		}
+	}
+
 	return html
 
+}
+
+
+function message_right_click () {
+	var event =  window.event
+	console.log(event)
+
+	document.getElementById("mess_right_click").style.display = "grid"
+
+	setTimeout(function() {
+		left = (Math.min.apply(null, [document.getElementById("body").offsetWidth, event.clientX+document.getElementById("mess_right_click").offsetWidth])-document.getElementById("mess_right_click").offsetWidth)
+		document.getElementById("mess_right_click").style.opacity = "1"
+		document.getElementById("mess_right_click").style.top = String(event.clientY)+"px"
+		document.getElementById("mess_right_click").style.left = String(left)+"px"
+
+		console.log([document.getElementById("body").offsetWidth, event.clientX+document.getElementById("mess_right_click").offsetWidth])
+
+		show_messages()
+	}, 10)
+
+}
+
+
+function close_options() {
+	document.getElementById("mess_right_click").style.opacity = "0"
+	setTimeout(function() {
+		document.getElementById("mess_right_click").style.display = "none"
+	}, 500)
 }
 
 
@@ -1244,8 +1495,9 @@ function open_message(mes) {
 	if(mes == "create") {
 		document.getElementById("create_account_div").style.display = ""
 		document.getElementById("edit_account_div").style.display = "none"
+		document.getElementById("record_div").style.display = "none"
 	}
-	else if(mes="edit") {
+	else if(mes=="edit") {
 
 		console.log("Edit contact")
 
@@ -1254,6 +1506,24 @@ function open_message(mes) {
 
 		document.getElementById("edit_account_div").style.display = ""
 		document.getElementById("create_account_div").style.display = "none"
+		document.getElementById("record_div").style.display = "none"
+	}
+	else if(mes=="audio"){
+		console.log("Audio Recording")
+
+		if (volCanCtx) {
+			volCanCtx.clearRect(0, 0, canvas.width, canvas.height)
+			audioCtx, analyser, bufferLength, dataArray, source, canvas, canvasCtx, volCan, volCanCtx = undefined
+
+			document.getElementById("start_recording").style.backgroundImage = ""
+
+			volumeArrays = []
+
+		}
+
+		document.getElementById("edit_account_div").style.display = "none"
+		document.getElementById("create_account_div").style.display = "none"
+		document.getElementById("record_div").style.display = ""
 	}
 
 }
@@ -1322,12 +1592,14 @@ function edit_contact() {
 		localStorage[new_name] = localStorage[sel_contact]
 		localStorage[new_name+"/mes"] = localStorage[sel_contact+"/mes"]
 		localStorage[new_name+"/id"] = localStorage[sel_contact+"/id"]
+		localStorage[new_name+"/icon"] = localStorage[sel_contact+"/icon"]
 
 		localStorage["contacts"] = edited_contacts
 
 		localStorage.removeItem(sel_contact)
 		localStorage.removeItem(sel_contact+"/mes")
 		localStorage.removeItem(sel_contact+"/id")
+		localStorage.removeItem(sel_contact+"/icon")
 
 		close_message()
 
@@ -1448,7 +1720,7 @@ function select_file() {
 function download(mes_number) {
 	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
-	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
+	file_data = {"name": message[5], "type": message[4], "base64": files[message[3]]["file"]}
 	console.log(file_data)
 
 	file(file_data, "download")
@@ -1469,14 +1741,25 @@ function open(mes_number) {
 function show_image(mes_number) {
 	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
-	file_data = {"name": message[5], "type": message[4], "base64": message[3]}
 
-	return file(file_data, "return")
+	console.log(message[5])
+	console.log(files[message[5]])
+
+	if (files[message[5]] != undefined) {
+		file_data = {"name": message[5], "type": message[4], "base64": files[message[5]]["file"]}
+
+		return file(file_data, "return")
+	} else {
+		return undefined
+	}
 }
 
 
 
 function file(data, objective) {
+
+	console.log(file_data)
+
 	linkSource = `data:`+data["type"]+`;base64,`+data["base64"]
 
 	if(objective == "download") {
@@ -1497,5 +1780,242 @@ function file(data, objective) {
 }
 
 
+var mediaStream = undefined
+
+var data = []
+
+var stream = undefined
+
+var blob = undefined
+
+var audioCtx, analyser, bufferLength, dataArray, source, canvas, canvasCtx, volCan, volCanCtx = undefined
+
+var volumeArrays = []
+
+function record_Audio() {
+
+	if (mediaStream == undefined) {
+		if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			console.log("getUserMedia supported.");
+			navigator.mediaDevices
+		    .getUserMedia(
+		      {
+		        audio: true,
+		      }
+		    )
+
+		    // Success callback
+		    .then((audio_stream) => {
+		    	stream = audio_stream
+		    	mediaStream = new MediaRecorder(stream)
+		    	console.log("mediaStream created")
+		    })
+		    .catch((err) => {
+			      console.error(`The following getUserMedia error occurred: ${err}`);
+			    });
+			} else {
+				console.log("getUserMedia not supported on your browser!");
+			}
+	} 
+	setTimeout(function() {
+		if (mediaStream != undefined) {
+			console.log(mediaStream.state)
+			if (mediaStream.state != "recording") {
+
+				document.getElementById("start_recording").style.backgroundImage = "url('"+media+"StopRecordingIcon.png')"
+
+				console.log("helo")
+		    	mediaStream.start()
+
+		    	mediaStream.ondataavailable = (e) => {
+		    		data.push(e.data)
+		    	}	
+		    	audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+				analyser = audioCtx.createAnalyser();
+				analyser.fftSize = 2048;
+
+				bufferLength = analyser.frequencyBinCount;
+				dataArray = new Uint8Array(bufferLength);
+				analyser.getByteTimeDomainData(dataArray);
+
+				source = audioCtx.createMediaStreamSource(stream)
+
+				console.log(source)
+
+				// Connect the source to be analysed
+				source.connect(analyser);
+
+				// Get a canvas defined with ID "oscilloscope"
+				canvas = document.getElementById("oscilloscope");
+				canvasCtx = canvas.getContext("2d");
+
+				volCan = document.getElementById("volumemeter");
+				volCan.height = volCan.offsetHeight
+				volCanCtx = volCan.getContext("2d");
+
+				// draw an oscilloscope of the current audio source
+
+				draw();
+				volume();
+
+		    	mediaStream.onstop = (e) => {
+					blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
+					document.getElementById("start_recording").style.backgroundImage = ""
+					// var webworkerReader = new FileReader();
+
+					// webworkerReader.onload = function(){
+
+				 //    	console.log("Loaded")
+
+					// 	binaryStr = webworkerReader.result;
+					// 	base64Str = btoa(binaryStr);
+					// 	console.log(blob)
+					// 	console.log(base64Str)
+
+					// 	linkSource = `data:audio/ogg;codecs:opus;base64,`+base64Str
+					// 	// audioURL = window.URL.createObjectURL(blob)
+					// 	// setInterval(function() {document.getElementById("listen_recorded_audio").src = "";document.getElementById("listen_recorded_audio").src = linkSource;}, 1000)
+					// 	send_audio()
+					// }
+				
+					// webworkerReader.readAsBinaryString(blob);
+					
+					
+				}
+			}
+			else {
+				send_audio()
+				document.getElementById("start_recording").style.backgroundImage = ""
+				mediaStream.stop()
+				analyser = undefined
+
+				
+
+			} 
+		}
+	}, 100)
+
+}
+
+
+function send_audio() {
+	
+	blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
+
+	var webworkerReader = new FileReader();
+
+	webworkerReader.onload = function(){
+
+    	console.log("Loaded")
+
+		binaryStr = webworkerReader.result;
+		base64Str = btoa(binaryStr);
+		console.log(blob)
+		console.log(base64Str)
+
+		time = new Date()
+
+		time_sent = String(time.getDate())+"/"+String(time.getMonth()+1)+"/"+String(time.getFullYear())+" "+String(time.getHours())+":"+String(time.getMinutes())
+
+		console.log(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;audio/ogg;>>;Audio.ogg")
+
+
+		connections[sel_contact].send(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;audio/ogg;>>;Audio.ogg")
+
+		if (localStorage[sel_contact+"/mes"] != "") {
+			localStorage[sel_contact+"/mes"] += ",,,"+time_sent+";>>;You;>>;You sent an audio"
+		}
+		else {
+			localStorage[sel_contact+"/mes"] = time_sent+";>>;You;>>;You sent an audio"
+		}
+
+		document.getElementById("messages").innerHTML = show_messages()
+	}
+
+	webworkerReader.readAsBinaryString(blob);
+
+	close_message()
+
+	notificate("Your audio was sent", "notif", 3)
+}
+
+function draw() {
+	if (mediaStream.state == "recording") {
+		requestAnimationFrame(draw);
+
+		analyser.getByteTimeDomainData(dataArray);
+
+		canvasCtx.fillStyle = "#ffffff";
+		canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+		canvasCtx.lineWidth = 2;
+		canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+
+		canvasCtx.beginPath();
+
+		const sliceWidth = (canvas.width * 1.0) / bufferLength;
+		let x = 0;
+
+		var averageVolume = 0
+
+		for (let i = 0; i < bufferLength; i++) {
+
+			const v = dataArray[i] / 128.0;
+			averageVolume += v
+			const y = (v * canvas.height) / 2;
+
+			if (i === 0) {
+					canvasCtx.moveTo(x, y);
+				} else {
+					canvasCtx.lineTo(x, y);
+			}
+
+			x += sliceWidth;
+		}
+
+		averageVolume = Math.floor(averageVolume**20/bufferLength*1000)
+
+		volumeArrays.push(averageVolume)
+
+		canvasCtx.lineTo(canvas.width, canvas.height / 2);
+		canvasCtx.stroke();
+	}
+}
+
+function volume() {
+	if (mediaStream.state == "recording") {
+		requestAnimationFrame(volume);
+
+		volCanCtx.fillStyle = "#ffffff";
+		volCanCtx.fillRect(0, 0, volCan.width, volCan.height);
+
+		volCanCtx.lineWidth = 2;
+		volCanCtx.strokeStyle = "rgb(0, 0, 0)";
+
+		volCanCtx.beginPath();
+
+		const sliceWidth = (volCan.width * 1.0) / volumeArrays.length;
+		let x = 0;
+
+		for (var i= 0;i < volumeArrays.length; i++) {
+
+
+			const v = (volumeArrays[i])**1/(Math.max.apply(null, volumeArrays))
+			const y = (v*volCan.height)/2
+
+			if (i === 0) {
+				volCanCtx.moveTo(x, y)
+			} else {
+				volCanCtx.lineTo(x, y)
+			}
+
+			x += sliceWidth
+
+		}
+		volCanCtx.stroke()
+	}
+}
 
 </script>
+</body>
