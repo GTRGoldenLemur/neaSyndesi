@@ -994,7 +994,7 @@ button {
 var media = ""
 
 
-// var icons = ["Media/UserI.png", "Media/UserII.png", "Media/UserIII.png", "Media/UserIV.png", "Media/UserV.png", "Media/UserVI.png", "Media/UserVII.png", "Media/UserVIII.png", "Media/UserIX.png", "Media/UserX.png", "Media/UserXI.png"]
+//var icons = ["Media/UserI.png", "Media/UserII.png", "Media/UserIII.png", "Media/UserIV.png", "Media/UserV.png", "Media/UserVI.png", "Media/UserVII.png", "Media/UserVIII.png", "Media/UserIX.png", "Media/UserX.png", "Media/UserXI.png"]
 
 var icons = ["UserI.PNG", "UserII.PNG", "UserIII.PNG", "UserIV.PNG", "UserV.PNG", "UserVI.PNG", "UserVII.PNG", "UserVIII.PNG", "UserIX.PNG", "UserX.PNG", "UserXI.PNG"]
 
@@ -1021,10 +1021,7 @@ var files = {}
 document.getElementById("logo_video").src = media+"FinalAnimatedIcon.gif"
 setTimeout(function() {
 	document.getElementById("logo_charge").style.opacity = 0
-	setTimeout(function() {
-		document.getElementById("logo_charge").style.display = "none"
-		document.getElementById("logo_video").src = ""
-	}, 400)
+	setTimeout(function() {document.getElementById("logo_charge").style.display = "none";	document.getElementById("logo_video").src = "";}, 400)
 }, 3000)
 
 
@@ -1090,7 +1087,6 @@ peer.on("open", function () {
 
 function retrieve_contacts(){
 	contactList = localStorage.contacts.split(",")
-	console.log(contactList)
 	if (localStorage.contacts != "") {
 		for (var x=0; x<contactList.length;x++) {
 			contacts[contactList[x]] = localStorage.getItem(contactList[x]+"/id")
@@ -1190,18 +1186,17 @@ function initialize_connections() {
 			if (true){
 				
 				connections[contactList[x]] = peer.connect(contacts[contactList[x]])
+
 				console.log("Connection sent: "+contacts[contactList[x]])
 
-				console.log(connections[contactList[x]])
-
-				connections[contactList[x]].on("open", function() {
+				connections[contactList[x]].on("open", function(n = x) {
+					console.log(n)
 					console.log("Connection with "+contactList[x]+" opened!")
 					console.log("He is contact n: "+String(x))
 
 					status_checker()
 
 					recieve()
-
 				})
 			}
 		}
@@ -1219,9 +1214,13 @@ function connect() {
 		peer.on("connection", function (dataConnection) {
 			console.log("Connection recieved from: "+ dataConnection.peer)
 			if (Object.values(contacts).includes(dataConnection.peer) && dataConnection.peer != id) {
+
+				connected[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]] = false
+
+
 				console.log("Name: "+ Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)])
 				console.log("ID: "+ dataConnection.peer)
-				connections[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]].close()
+				// connections[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]].close()
 				connections[Object.keys(contacts)[Object.values(contacts).indexOf(dataConnection.peer)]] = dataConnection
 
 				status_checker()
@@ -1255,11 +1254,11 @@ function recieve() {
 			connections[contactList[x]].on("data", function(data) {
 				//console.log(data)
 
+
 				sender = data.split("|||")[0]
 
 				sender = Object.keys(contacts)[Object.values(contacts).indexOf(sender)]
 
-				console.log(data.split("|||")[1])
 
 				if (data.split("|||")[1]=="mes") {
 
@@ -1343,8 +1342,11 @@ function send_message() {
 		time = new Date()
 	
 		time_sent = String(time.getDate())+"/"+String(time.getMonth()+1)+"/"+String(time.getFullYear())+" "+String(time.getHours())+":"+String(time.getMinutes())
-	
-		connections[sel_contact].send(id+"|||mes|||"+time_sent+";>>;"+id+";>>;"+document.getElementById("new_message_inp").value)
+		
+		var f_message = id+"|||mes|||"+time_sent+";>>;"+id+";>>;"+document.getElementById("new_message_inp").value
+		console.log(f_message)
+
+		connections[sel_contact].send(f_message)
 		
 	
 		if (localStorage[sel_contact+"/mes"] != "") {
@@ -1389,20 +1391,16 @@ function show_messages() {
 			mes_icon = localStorage[sel_contact+"/icon"]
 		}
 
-		console.log(messages[x].split(";>>;").length)
-
 		if(messages[x].split(";>>;").length == 3) {
 			// html += '<div class="'+mes_class+' message"><h>'+messages[x].split(";>>;")[0]+' | '+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p></div>'
 			html += '<div id="mes'+String(x)+'" oncontextmenu="message_right_click();return false" class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h><p>'+messages[x].split(";>>;")[2]+'</p><h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
 		}
 		else {
-			console.log(messages[x].split(";>>;"))
 
 			var image = ""
 
 			var imageLink = show_image(x)
 
-			console.log(imageLink)
 
 			var button = ""
 
@@ -1421,7 +1419,7 @@ function show_messages() {
 
 
 
-			html += '<div class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h>'+`<p>"`+sel_contact+`" sent `+messages[x].split(";>>;")[5]+`</p>`+image+button+'<h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
+			html += '<div id="mes'+String(x)+'" class="'+mes_class+' message"><img class="UserIcon" src="'+mes_icon+'"><div><h>'+messages[x].split(";>>;")[1]+'</h>'+`<p>"`+sel_contact+`" sent `+messages[x].split(";>>;")[5]+`</p>`+image+button+'<h2>'+messages[x].split(";>>;")[0]+'</h2></div></div>'
 
 
 			// <button onclick="open('+x+')">Open "'+messages[x].split(";>>;")[5]+'"</button>
@@ -1436,15 +1434,6 @@ function show_messages() {
 	}
 
 	document.getElementById("messages").innerHTML = html
-
-	if (localStorage[sel_contact+"/mes"] != "") {
-		for (var x=0; x<messages.length;x++) {
-			el = document.getElementById("mes"+String(x))
-			el.addEventListener("click", function (e){
-				console.log(e.which)
-			}, false)
-		}
-	}
 
 	return html
 
@@ -1742,9 +1731,6 @@ function show_image(mes_number) {
 	message = localStorage[sel_contact+"/mes"].split(",,,")[mes_number].split(";>>;")
 
 
-	console.log(message[5])
-	console.log(files[message[5]])
-
 	if (files[message[5]] != undefined) {
 		file_data = {"name": message[5], "type": message[4], "base64": files[message[5]]["file"]}
 
@@ -1771,7 +1757,6 @@ function file(data, objective) {
 		window.open(linkSource)
 	}
 	else if (objective == "return") {
-		console.log("return")
 		return linkSource
 	}
 
@@ -1796,7 +1781,6 @@ function record_Audio() {
 
 	if (mediaStream == undefined) {
 		if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-			console.log("getUserMedia supported.");
 			navigator.mediaDevices
 		    .getUserMedia(
 		      {
@@ -1808,7 +1792,6 @@ function record_Audio() {
 		    .then((audio_stream) => {
 		    	stream = audio_stream
 		    	mediaStream = new MediaRecorder(stream)
-		    	console.log("mediaStream created")
 		    })
 		    .catch((err) => {
 			      console.error(`The following getUserMedia error occurred: ${err}`);
@@ -1819,17 +1802,15 @@ function record_Audio() {
 	} 
 	setTimeout(function() {
 		if (mediaStream != undefined) {
-			console.log(mediaStream.state)
 			if (mediaStream.state != "recording") {
 
 				document.getElementById("start_recording").style.backgroundImage = "url('"+media+"StopRecordingIcon.png')"
-
-				console.log("helo")
 		    	mediaStream.start()
 
-		    	mediaStream.ondataavailable = (e) => {
+		    	mediaStream.ondataavailable = function(e) {
 		    		data.push(e.data)
-		    	}	
+		    	}
+
 		    	audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 				analyser = audioCtx.createAnalyser();
@@ -1841,7 +1822,6 @@ function record_Audio() {
 
 				source = audioCtx.createMediaStreamSource(stream)
 
-				console.log(source)
 
 				// Connect the source to be analysed
 				source.connect(analyser);
@@ -1860,35 +1840,19 @@ function record_Audio() {
 				volume();
 
 		    	mediaStream.onstop = (e) => {
-					blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
-					document.getElementById("start_recording").style.backgroundImage = ""
-					// var webworkerReader = new FileReader();
-
-					// webworkerReader.onload = function(){
-
-				 //    	console.log("Loaded")
-
-					// 	binaryStr = webworkerReader.result;
-					// 	base64Str = btoa(binaryStr);
-					// 	console.log(blob)
-					// 	console.log(base64Str)
-
-					// 	linkSource = `data:audio/ogg;codecs:opus;base64,`+base64Str
-					// 	// audioURL = window.URL.createObjectURL(blob)
-					// 	// setInterval(function() {document.getElementById("listen_recorded_audio").src = "";document.getElementById("listen_recorded_audio").src = linkSource;}, 1000)
-					// 	send_audio()
-					// }
-				
-					// webworkerReader.readAsBinaryString(blob);
-					
+					//blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
+					document.getElementById("start_recording").style.backgroundImage = ""					
 					
 				}
 			}
 			else {
-				send_audio()
+				
 				document.getElementById("start_recording").style.backgroundImage = ""
+				mediaStream.requestData()
 				mediaStream.stop()
+				setTimeout(function() {send_audio();}, 100)
 				analyser = undefined
+
 
 				
 
@@ -1900,28 +1864,27 @@ function record_Audio() {
 
 
 function send_audio() {
-	
-	blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
+
+
+
+	const blob = new Blob(data, {type:"audio/ogg; codecs=opus"})
+
 
 	var webworkerReader = new FileReader();
 
 	webworkerReader.onload = function(){
 
-    	console.log("Loaded")
 
 		binaryStr = webworkerReader.result;
 		base64Str = btoa(binaryStr);
-		console.log(blob)
-		console.log(base64Str)
 
 		time = new Date()
 
 		time_sent = String(time.getDate())+"/"+String(time.getMonth()+1)+"/"+String(time.getFullYear())+" "+String(time.getHours())+":"+String(time.getMinutes())
 
-		console.log(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;audio/ogg;>>;Audio.ogg")
+		audio_id = String(Math.floor(Math.random()*1000))
 
-
-		connections[sel_contact].send(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;audio/ogg;>>;Audio.ogg")
+		connections[sel_contact].send(id+"|||file|||"+time_sent+";>>;"+id+";>>;"+base64Str+";>>;audio/ogg;>>;Audio"+audio_id+".ogg")
 
 		if (localStorage[sel_contact+"/mes"] != "") {
 			localStorage[sel_contact+"/mes"] += ",,,"+time_sent+";>>;You;>>;You sent an audio"
