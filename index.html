@@ -1409,7 +1409,7 @@ function show_messages() {
 			} if (messages[x].split(";>>;")[4].includes("video/") && imageLink != undefined) {
 				image = `<video class="message_image" controls> <source type="`+messages[x].split(";>>;")[4]+`" src="`+imageLink+`"></video>`
 			} if (messages[x].split(";>>;")[4].includes("audio/") && imageLink != undefined) {
-				image = `<audio class="message_image" controls> <source type="`+messages[x].split(";>>;")[4]+`" src="`+imageLink+`"></audio>`
+				image = `<audio class="message_image" style="height: 20px;"controls> <source type="`+messages[x].split(";>>;")[4]+`" src="`+imageLink+`"></audio>`
 			}
 			if (imageLink != undefined) {
 				button = '<button onclick="download('+x+')">Download "'+messages[x].split(";>>;")[5]+'"</button>'
